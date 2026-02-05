@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secret Login 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+.box {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: pop 1.2s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+  color: #e63946;
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+
+<div class="box">
+  <h1>Unlock My Heart 🔐</h1>
+  <input type="text" id="uid" placeholder="Your Name">
+  <input type="password" id="pwd" placeholder="Password">
+  <button onclick="unlock()">Unlock</button>
+  <div class="error" id="error"></div>
+</div>
+
+<script>
+function unlock() {
+  const id = document.getElementById("uid").value;
+  const pass = document.getElementById("pwd").value;
+
+  // CHANGE THESE
+  if (id === "hername" && pass === "143") {
+    window.location.href = "love.html";
+  } else {
+    document.getElementById("error").innerText =
+      "Only my Valentine can unlock this 💔";
+  }
+}
+</script>
+
+</body>
+</html>
